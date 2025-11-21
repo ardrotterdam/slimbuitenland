@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <title>SlimBuitenland.nl – Let’s make money 💸</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #00e676, #00b894, #003b2d);
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      overflow: hidden;
+    }
+
+    .wrapper {
+      position: relative;
+      max-width: 900px;
+      width: 100%;
+    }
+
+    .card {
+      position: relative;
+      background: rgba(0, 0, 0, 0.35);
+      border-radius: 24px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      box-shadow: 0 22px 60px rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      z-index: 2;
+    }
+
+    h1 {
+      font-size: clamp(2.8rem, 5vw, 3.8rem);
+      margin: 0 0 0.5rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .highlight {
+      display: inline-block;
+      padding: 0.1em 0.35em;
+      border-radius: 999px;
+      background: rgba(0,0,0,0.35);
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+
+    h2 {
+      font-size: clamp(1.6rem, 3vw, 2.1rem);
+      margin: 0.4rem 0 1.2rem;
+      font-weight: 700;
+    }
+
+    p {
+      margin: 0.3rem 0;
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    .big-line {
+      font-size: 1.3rem;
+      margin-top: 1rem;
+      font-weight: 600;
+    }
+
+    .money {
+      font-size: 2.2rem;
+      margin: 0.5rem 0 1.4rem;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 1.2rem;
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.4);
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      opacity: 0.9;
+    }
+
+    .small {
+      margin-top: 1.3rem;
+      font-size: 0.85rem;
+      opacity: 0.9;
+    }
+
+    /* Fun illustratie – simpel, maar speels */
+    .illustration {
+      margin: 1.8rem auto 0;
+      max-width: 280px;
+    }
+
+    svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Dollar rain */
+    .money-rain {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .bill {
+      position: absolute;
+      font-size: 1.7rem;
+      opacity: 0.22;
+      animation: fall 8s linear infinite;
+    }
+
+    .bill:nth-child(2) { left: 10%; animation-delay: -2s; font-size: 1.3rem; }
+    .bill:nth-child(3) { left: 25%; animation-delay: -4s; font-size: 2rem; }
+    .bill:nth-child(4) { left: 40%; animation-delay: -1s; }
+    .bill:nth-child(5) { left: 55%; animation-delay: -5s; font-size: 1.5rem; }
+    .bill:nth-child(6) { left: 70%; animation-delay: -3s; font-size: 2.1rem; }
+    .bill:nth-child(7) { left: 85%; animation-delay: -6s; font-size: 1.4rem; }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-110vh) rotate(0deg);
+      }
+      100% {
+        transform: translateY(110vh) rotate(360deg);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .card {
+        padding: 2rem 1.4rem;
+      }
+      .money {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="money-rain" aria-hidden="true">
+      <div class="bill">💵</div>
+      <div class="bill">💸</div>
+      <div class="bill">💶</div>
+      <div class="bill">💵</div>
+      <div class="bill">💸</div>
+      <div class="bill">💶</div>
+      <div class="bill">💵</div>
+    </div>
+
+    <main class="card">
+      <h1><span class="highlight">Héééé Nando! 🎉</span></h1>
+      <h2>Onze SlimBuitenland.nl is klaar voor de start 🚀</h2>
+
+      <p class="big-line">
+        Dit is onze officiële <strong>“we gaan veel geld verdienen”</strong> testpagina.
+      </p>
+
+      <p class="money">
+        💰💸💶💵💸💰
+      </p>
+
+      <p>
+        GitHub ✔ Vercel ✔ Domein ✔<br>
+        Vanaf nu is elke <strong>push</strong> naar <code>main</code> een nieuwe stap
+        richting <strong>slim geld verdienen in het buitenland</strong>.
+      </p>
+
+      <p>
+        Geen stress, geen haast – gewoon stap voor stap bouwen aan iets groots.
+      </p>
+
+      <div class="illustration" aria-hidden="true">
+        <!-- Simpele fun illustratie in SVG -->
+        <svg viewBox="0 0 260 180">
+          <defs>
+            <linearGradient id="planeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#00e676"/>
+              <stop offset="100%" stop-color="#00bcd4"/>
+            </linearGradient>
+            <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#1de9b6"/>
+              <stop offset="100%" stop-color="#a7ffeb"/>
+            </linearGradient>
+          </defs>
+
+          <!-- Horizon -->
+          <rect x="0" y="120" width="260" height="60" fill="rgba(0,0,0,0.35)" />
+
+          <!-- Boarding pass / money card -->
+          <rect x="18" y="40" rx="14" ry="14" width="115" height="80" fill="url(#cardGrad)" opacity="0.95"/>
+          <rect x="18" y="40" rx="14" ry="14" width="115" height="80"
+                fill="none" stroke="rgba(0,0,0,0.3)" stroke-width="2"/>
+          <text x="30" y="65" font-size="12" fill="#004d40" font-weight="700">
+            SLIM BUITENLAND
+          </text>
+          <text x="30" y="85" font-size="10" fill="#004d40">
+            Ticket to 💸 & ☀
+          </text>
+          <text x="30" y="103" font-size="9" fill="#004d40">
+            NL ➜ World
+          </text>
+
+          <!-- Plane -->
+          <g transform="translate(140,45)">
+            <path d="M0 40 L55 25 L105 40 L55 55 Z" fill="url(#planeGrad)" />
+            <path d="M55 15 L70 42 L40 42 Z" fill="url(#planeGrad)"/>
+            <rect x="48" y="32" width="14" height="18" fill="rgba(255,255,255,0.9)" rx="3"/>
+            <circle cx="25" cy="48" r="4" fill="#ffffff" opacity="0.9"/>
+            <circle cx="55" cy="48" r="4" fill="#ffffff" opacity="0.9"/>
+            <circle cx="85" cy="48" r="4" fill="#ffffff" opacity="0.9"/>
+          </g>
+
+          <!-- Sun -->
+          <circle cx="220" cy="30" r="18" fill="#ffd600" opacity="0.95"/>
+
+          <!-- Waves / buitenland gevoel -->
+          <path d="M0 135 Q35 125 70 135 T140 135 T210 135 T280 135"
+                fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="3" />
+          <path d="M0 145 Q35 135 70 145 T140 145 T210 145 T280 145"
+                fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2" />
+        </svg>
+      </div>
+
+      <div class="tag">
+        <span>Phase 1:</span> <span>We are live 💻</span>
+      </div>
+
+      <p class="small">
+        PS: Als je dit leest, werkt de hele keten al: Nando + Ard + GitHub + Vercel + SlimBuitenland.nl 😎
+      </p>
+    </main>
+  </div>
+</body>
+</html>
