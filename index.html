@@ -1,10 +1,26 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="nl">
 <head>
-  <meta charset="utf-8">
-  <title>SlimBuitenland.nl – Let’s make money 💸</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <title>Slim Buitenland – Werken en wonen in het buitenland: belasting, AOW & verzekering</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Slim Buitenland helpt Nederlanders die willen werken of wonen in het buitenland met duidelijke informatie over belasting, AOW, zorgverzekering en emigratie. Start hier met de complete gids.">
   <style>
+    :root {
+      --sb-bg: #f5f7fb;
+      --sb-bg-soft: #ffffff;
+      --sb-bg-dark: #0b1f33;
+      --sb-primary: #0078d4;
+      --sb-primary-soft: #e3f2fd;
+      --sb-accent: #ff9800;
+      --sb-text-main: #13243a;
+      --sb-text-muted: #6c7a8a;
+      --sb-border-soft: #d4dde8;
+      --sb-radius-lg: 18px;
+      --sb-radius-sm: 10px;
+      --sb-shadow-soft: 0 18px 40px rgba(3, 22, 48, 0.12);
+    }
+
     * {
       box-sizing: border-box;
     }
@@ -12,240 +28,1483 @@
     body {
       margin: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #00e676, #00b894, #003b2d);
-      color: #ffffff;
-      min-height: 100vh;
+      background: radial-gradient(circle at top, #f0f6ff 0, #f5f7fb 40%, #eef2f8 100%);
+      color: var(--sb-text-main);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--sb-primary);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .sb-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    /* Header & Hero --------------------------------------------------------- */
+
+    .sb-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(16px);
+      background: rgba(245, 247, 251, 0.92);
+      border-bottom: 1px solid rgba(212, 221, 232, 0.7);
+    }
+
+    .sb-header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 16px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .sb-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .sb-logo-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 20% 20%, #00bcd4, #0078d4 60%, #0b1f33 100%);
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 1.5rem;
-      overflow: hidden;
+      color: #fff;
+      font-weight: 700;
+      font-size: 16px;
+      box-shadow: 0 8px 18px rgba(0, 120, 212, 0.45);
     }
 
-    .wrapper {
-      position: relative;
-      max-width: 900px;
-      width: 100%;
-    }
-
-    .card {
-      position: relative;
-      background: rgba(0, 0, 0, 0.35);
-      border-radius: 24px;
-      padding: 2.5rem 2rem;
-      text-align: center;
-      box-shadow: 0 22px 60px rgba(0, 0, 0, 0.6);
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      z-index: 2;
-    }
-
-    h1 {
-      font-size: clamp(2.8rem, 5vw, 3.8rem);
-      margin: 0 0 0.5rem;
-      letter-spacing: 0.06em;
+    .sb-logo-text-main {
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      font-size: 17px;
       text-transform: uppercase;
     }
 
-    .highlight {
-      display: inline-block;
-      padding: 0.1em 0.35em;
+    .sb-logo-text-sub {
+      font-size: 11px;
+      color: var(--sb-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .sb-nav {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      font-size: 14px;
+    }
+
+    .sb-nav a {
+      padding: 6px 10px;
       border-radius: 999px;
-      background: rgba(0,0,0,0.35);
-      border: 1px solid rgba(255,255,255,0.3);
+      color: var(--sb-text-muted);
+      font-weight: 500;
     }
 
-    h2 {
-      font-size: clamp(1.6rem, 3vw, 2.1rem);
-      margin: 0.4rem 0 1.2rem;
-      font-weight: 700;
+    .sb-nav a:hover {
+      background: rgba(227, 242, 253, 0.9);
+      color: var(--sb-text-main);
+      text-decoration: none;
     }
 
-    p {
-      margin: 0.3rem 0;
-      font-size: 1.05rem;
-      line-height: 1.7;
+    .sb-nav-cta {
+      background: var(--sb-primary);
+      color: #fff !important;
+      box-shadow: 0 8px 20px rgba(0, 120, 212, 0.32);
     }
 
-    .big-line {
-      font-size: 1.3rem;
-      margin-top: 1rem;
+    .sb-nav-cta:hover {
+      background: #005fa8;
+    }
+
+    @media (max-width: 780px) {
+      .sb-nav {
+        display: none;
+      }
+    }
+
+    .sb-hero {
+      padding: 32px 0 24px;
+    }
+
+    .sb-hero-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 32px;
+      align-items: center;
+    }
+
+    @media (max-width: 860px) {
+      .sb-hero-inner {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .sb-hero-kicker {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--sb-text-muted);
+      margin-bottom: 10px;
       font-weight: 600;
     }
 
-    .money {
-      font-size: 2.2rem;
-      margin: 0.5rem 0 1.4rem;
+    .sb-hero-title {
+      font-size: clamp(1.9rem, 3vw + 1rem, 2.6rem);
+      line-height: 1.15;
+      margin: 0 0 14px;
+      color: var(--sb-bg-dark);
     }
 
-    .tag {
+    .sb-hero-title span {
+      color: var(--sb-primary);
+    }
+
+    .sb-hero-sub {
+      font-size: 15px;
+      color: var(--sb-text-muted);
+      max-width: 540px;
+      margin-bottom: 16px;
+    }
+
+    .sb-hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .sb-badge {
+      font-size: 12px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(0, 120, 212, 0.2);
+      background: rgba(227, 242, 253, 0.7);
+      color: var(--sb-text-main);
       display: inline-flex;
       align-items: center;
-      gap: 0.4rem;
-      margin-top: 1.2rem;
-      padding: 0.4rem 0.9rem;
+      gap: 6px;
+    }
+
+    .sb-badge-dot {
+      width: 7px;
+      height: 7px;
       border-radius: 999px;
-      background: rgba(0, 0, 0, 0.4);
-      font-size: 0.95rem;
+      background: var(--sb-primary);
+    }
+
+    .sb-hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .sb-btn-primary {
+      padding: 10px 18px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      background: linear-gradient(135deg, #0078d4, #00bcd4);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 14px 30px rgba(0, 120, 212, 0.35);
+    }
+
+    .sb-btn-primary span {
+      font-size: 16px;
+    }
+
+    .sb-btn-ghost {
+      padding: 9px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(19, 36, 58, 0.14);
+      background: rgba(255, 255, 255, 0.9);
+      cursor: pointer;
+      font-size: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--sb-text-main);
+    }
+
+    .sb-hero-note {
+      font-size: 12px;
+      color: var(--sb-text-muted);
+    }
+
+    .sb-hero-visual {
+      background: radial-gradient(circle at top, #e3f2fd 0, #c5e8ff 45%, #b3e5fc 100%);
+      border-radius: 32px;
+      padding: 18px 18px 20px;
+      box-shadow: var(--sb-shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .sb-hero-visual-tag {
+      font-size: 11px;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
-      opacity: 0.9;
+      letter-spacing: 0.16em;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 6px;
     }
 
-    .small {
-      margin-top: 1.3rem;
-      font-size: 0.85rem;
-      opacity: 0.9;
+    .sb-hero-globe {
+      font-size: 32px;
+      margin-bottom: 6px;
     }
 
-    /* Fun illustratie – simpel, maar speels */
-    .illustration {
-      margin: 1.8rem auto 0;
-      max-width: 280px;
+    .sb-hero-visual h2 {
+      font-size: 15px;
+      margin: 2px 0 4px;
+      color: #ffffff;
     }
 
-    svg {
-      width: 100%;
-      height: auto;
+    .sb-hero-visual p {
+      font-size: 12px;
+      color: rgba(240, 248, 255, 0.96);
+      margin: 0 0 10px;
+    }
+
+    .sb-hero-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 10px;
+      font-size: 12px;
+      color: #f5f7fb;
+    }
+
+    .sb-hero-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+      margin-bottom: 4px;
+    }
+
+    .sb-hero-list span {
+      margin-top: 2px;
+    }
+
+    .sb-hero-country-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-size: 11px;
+      margin-bottom: 8px;
+    }
+
+    .sb-chip {
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: rgba(11, 31, 51, 0.32);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+
+    .sb-hero-disclaimer {
+      font-size: 10px;
+      color: rgba(236, 245, 255, 0.96);
+      border-radius: 10px;
+      border: 1px dashed rgba(245, 251, 255, 0.5);
+      padding: 6px 7px;
+      background: linear-gradient(135deg, rgba(11, 31, 51, 0.72), rgba(0, 120, 212, 0.6));
+      margin-top: 4px;
+    }
+
+    /* Sections -------------------------------------------------------------- */
+
+    section {
+      padding: 12px 0 20px;
+    }
+
+    .sb-section-heading {
+      margin-bottom: 10px;
+    }
+
+    .sb-section-heading h2 {
+      font-size: 20px;
+      margin: 0 0 6px;
+    }
+
+    .sb-section-heading p {
+      margin: 0;
+      font-size: 14px;
+      color: var(--sb-text-muted);
+      max-width: 620px;
+    }
+
+    .sb-two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 20px;
+    }
+
+    @media (max-width: 900px) {
+      .sb-two-col {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .sb-card {
+      background: var(--sb-bg-soft);
+      border-radius: var(--sb-radius-lg);
+      padding: 16px 18px 16px;
+      box-shadow: var(--sb-shadow-soft);
+      border: 1px solid rgba(212, 221, 232, 0.7);
+    }
+
+    .sb-card-soft {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: var(--sb-radius-lg);
+      padding: 14px 16px;
+      border: 1px solid var(--sb-border-soft);
+    }
+
+    .sb-chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .sb-chip-soft {
+      font-size: 11px;
+      padding: 3px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(19, 36, 58, 0.12);
+      background: #f7f9fc;
+      color: var(--sb-text-muted);
+    }
+
+    /* “Voor wie” cards */
+
+    .sb-audience-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 900px) {
+      .sb-audience-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .sb-audience-card h3 {
+      font-size: 15px;
+      margin: 0 0 6px;
+    }
+
+    .sb-audience-card p {
+      margin: 0 0 8px;
+      font-size: 13px;
+      color: var(--sb-text-muted);
+    }
+
+    .sb-audience-card ul {
+      margin: 0;
+      padding-left: 18px;
+      font-size: 13px;
+      color: var(--sb-text-main);
+    }
+
+    /* Steps / timeline */
+
+    .sb-step-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .sb-step-item {
+      display: grid;
+      grid-template-columns: 32px minmax(0, 1fr);
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .sb-step-number {
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      border: 2px solid var(--sb-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--sb-primary);
+      background: var(--sb-primary-soft);
+    }
+
+    .sb-step-content h3 {
+      margin: 0 0 4px;
+      font-size: 14px;
+    }
+
+    .sb-step-content p {
+      margin: 0;
+      font-size: 13px;
+      color: var(--sb-text-muted);
+    }
+
+    /* Content blocks */
+
+    .sb-subtitle {
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--sb-text-muted);
+      margin-bottom: 4px;
+    }
+
+    .sb-text-sm {
+      font-size: 13px;
+      color: var(--sb-text-muted);
+    }
+
+    .sb-highlight {
+      border-left: 3px solid var(--sb-primary);
+      padding-left: 10px;
+      font-size: 13px;
+      color: var(--sb-text-muted);
+      margin: 6px 0;
+    }
+
+    .sb-cols-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    @media (max-width: 800px) {
+      .sb-cols-2 {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .sb-list-clean {
+      margin: 0;
+      padding-left: 18px;
+      font-size: 14px;
+    }
+
+    /* Landen / Bulgarije blok */
+
+    .sb-country-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 18px;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 900px) {
+      .sb-country-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .sb-country-tag {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--sb-text-muted);
+      margin-bottom: 6px;
+    }
+
+    .sb-country-highlight {
+      background: linear-gradient(135deg, #0078d4, #00bcd4);
+      border-radius: var(--sb-radius-lg);
+      padding: 14px 16px;
+      color: #fff;
+      box-shadow: 0 18px 36px rgba(0, 120, 212, 0.35);
+    }
+
+    .sb-country-highlight h3 {
+      margin: 0 0 6px;
+      font-size: 16px;
+    }
+
+    .sb-country-highlight p {
+      margin: 0 0 8px;
+      font-size: 13px;
+    }
+
+    .sb-country-highlight ul {
+      margin: 0 0 8px;
+      padding-left: 18px;
+      font-size: 13px;
+    }
+
+    .sb-cta-mini {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      cursor: pointer;
+      color: #fff;
+    }
+
+    .sb-cta-mini:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Disclaimer */
+
+    .sb-disclaimer {
+      margin-top: 12px;
+      border-radius: var(--sb-radius-lg);
+      border: 1px dashed rgba(11, 31, 51, 0.4);
+      padding: 10px 12px;
+      background: #fff9e6;
+      font-size: 12px;
+      color: #654c15;
+    }
+
+    .sb-disclaimer strong {
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 11px;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    /* FAQ */
+
+    .sb-faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .sb-faq-item {
+      border-radius: var(--sb-radius-sm);
+      background: var(--sb-bg-soft);
+      border: 1px solid var(--sb-border-soft);
+      overflow: hidden;
+    }
+
+    .sb-faq-question {
+      padding: 10px 12px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .sb-faq-question span {
+      flex: 1;
+    }
+
+    .sb-faq-toggle {
+      font-size: 18px;
+      margin-left: 8px;
+      color: var(--sb-text-muted);
+    }
+
+    .sb-faq-answer {
+      padding: 0 12px 10px;
+      font-size: 13px;
+      color: var(--sb-text-muted);
+      display: none;
+    }
+
+    .sb-faq-item.active .sb-faq-answer {
       display: block;
     }
 
-    /* Dollar rain */
-    .money-rain {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      overflow: hidden;
-      z-index: 1;
+    .sb-faq-item.active .sb-faq-toggle {
+      transform: rotate(45deg);
     }
 
-    .bill {
-      position: absolute;
-      font-size: 1.7rem;
-      opacity: 0.22;
-      animation: fall 8s linear infinite;
+    /* Leadformulier */
+
+    .sb-form-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 18px;
+      margin-top: 8px;
     }
 
-    .bill:nth-child(2) { left: 10%; animation-delay: -2s; font-size: 1.3rem; }
-    .bill:nth-child(3) { left: 25%; animation-delay: -4s; font-size: 2rem; }
-    .bill:nth-child(4) { left: 40%; animation-delay: -1s; }
-    .bill:nth-child(5) { left: 55%; animation-delay: -5s; font-size: 1.5rem; }
-    .bill:nth-child(6) { left: 70%; animation-delay: -3s; font-size: 2.1rem; }
-    .bill:nth-child(7) { left: 85%; animation-delay: -6s; font-size: 1.4rem; }
-
-    @keyframes fall {
-      0% {
-        transform: translateY(-110vh) rotate(0deg);
-      }
-      100% {
-        transform: translateY(110vh) rotate(360deg);
+    @media (max-width: 900px) {
+      .sb-form-grid {
+        grid-template-columns: minmax(0, 1fr);
       }
     }
 
-    @media (max-width: 600px) {
-      .card {
-        padding: 2rem 1.4rem;
-      }
-      .money {
-        font-size: 1.8rem;
-      }
+    .sb-form-group {
+      margin-bottom: 8px;
+    }
+
+    .sb-form-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    .sb-form-group input,
+    .sb-form-group select,
+    .sb-form-group textarea {
+      width: 100%;
+      border-radius: 10px;
+      border: 1px solid var(--sb-border-soft);
+      padding: 8px 9px;
+      font-size: 13px;
+      font-family: inherit;
+      background: #ffffff;
+    }
+
+    .sb-form-group textarea {
+      min-height: 90px;
+      resize: vertical;
+    }
+
+    .sb-form-help {
+      font-size: 11px;
+      color: var(--sb-text-muted);
+      margin-top: 3px;
+    }
+
+    .sb-btn-submit {
+      padding: 10px 18px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      background: linear-gradient(135deg, #ff9800, #ffb74d);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      box-shadow: 0 10px 24px rgba(255, 152, 0, 0.4);
+      margin-top: 4px;
+    }
+
+    .sb-btn-submit:hover {
+      background: linear-gradient(135deg, #fb8c00, #ffa726);
+    }
+
+    /* Footer */
+
+    .sb-footer {
+      padding: 14px 0 30px;
+      font-size: 12px;
+      color: var(--sb-text-muted);
+      border-top: 1px solid rgba(212, 221, 232, 0.7);
+      margin-top: 10px;
+    }
+
+    .sb-footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .sb-footer-nav {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .sb-footer-nav a {
+      font-size: 12px;
+      color: var(--sb-text-muted);
+    }
+
+    /* Smooth scroll */
+
+    html {
+      scroll-behavior: smooth;
     }
   </style>
 </head>
 <body>
-  <div class="wrapper">
-    <div class="money-rain" aria-hidden="true">
-      <div class="bill">💵</div>
-      <div class="bill">💸</div>
-      <div class="bill">💶</div>
-      <div class="bill">💵</div>
-      <div class="bill">💸</div>
-      <div class="bill">💶</div>
-      <div class="bill">💵</div>
+  <header class="sb-header">
+    <div class="sb-header-inner">
+      <div class="sb-logo">
+        <div class="sb-logo-icon">SB</div>
+        <div>
+          <div class="sb-logo-text-main">Slim Buitenland</div>
+          <div class="sb-logo-text-sub">BuitenlandBelasting.nl</div>
+        </div>
+      </div>
+      <nav class="sb-nav">
+        <a href="#voor-wie">Voor wie</a>
+        <a href="#werken">Werken & ondernemen</a>
+        <a href="#wonen">Wonen & emigreren</a>
+        <a href="#aow">AOW & pensioen</a>
+        <a href="#zorg">Zorg & verzekering</a>
+        <a href="#landen">Landen & Bulgarije</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact" class="sb-nav-cta">Persoonlijk advies</a>
+      </nav>
     </div>
+  </header>
 
-    <main class="card">
-      <h1><span class="highlight">Héééé Nando! 🎉</span></h1>
-      <h2>Onze SlimBuitenland.nl is klaar voor de start 🚀</h2>
+  <main>
+    <section class="sb-hero">
+      <div class="sb-container">
+        <div class="sb-hero-inner">
+          <div>
+            <div class="sb-hero-kicker">Start hier</div>
+            <h1 class="sb-hero-title">
+              Slim naar het buitenland<br />
+              <span>met je geldzaken op orde</span>
+            </h1>
+            <p class="sb-hero-sub">
+              Deze gids is voor Nederlanders die willen werken, wonen of overwinteren in het buitenland
+              en geen chaos willen rond belasting, AOW en zorgverzekering. Geen juridisch jargon,
+              maar duidelijke uitleg in normaal Nederlands.
+            </p>
 
-      <p class="big-line">
-        Dit is onze officiële <strong>“we gaan veel geld verdienen”</strong> testpagina.
-      </p>
+            <div class="sb-hero-badges">
+              <div class="sb-badge">
+                <span class="sb-badge-dot"></span> Belasting & woonplaats
+              </div>
+              <div class="sb-badge">
+                <span class="sb-badge-dot"></span> Digital nomads & remote workers
+              </div>
+              <div class="sb-badge">
+                <span class="sb-badge-dot"></span> Emigratie & AOW
+              </div>
+            </div>
 
-      <p class="money">
-        💰💸💶💵💸💰
-      </p>
+            <div class="sb-hero-actions">
+              <button class="sb-btn-primary" onclick="document.getElementById('werken').scrollIntoView({behavior:'smooth'})">
+                <span>▶</span> Lees de gids
+              </button>
+              <button class="sb-btn-ghost" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+                Plan een gratis oriënterend contact
+              </button>
+            </div>
 
-      <p>
-        GitHub ✔ Vercel ✔ Domein ✔<br>
-        Vanaf nu is elke <strong>push</strong> naar <code>main</code> een nieuwe stap
-        richting <strong>slim geld verdienen in het buitenland</strong>.
-      </p>
+            <div class="sb-hero-note">
+              Geen belastingadvies, wél helder overzicht. We verwijzen je door naar erkende professionals
+              als je maatwerk nodig hebt.
+            </div>
+          </div>
 
-      <p>
-        Geen stress, geen haast – gewoon stap voor stap bouwen aan iets groots.
-      </p>
+          <aside class="sb-hero-visual" aria-label="Visuele samenvatting van de gids">
+            <div class="sb-hero-tag">Slim Buitenland – overzicht</div>
+            <div class="sb-hero-globe">🌍</div>
+            <h2>Werken & wonen in het buitenland als Nederlander</h2>
+            <p>
+              In één overzicht: hoe woonplaats, 183-dagenregel, AOW en zorgverzekering
+              ongeveer werken als je (tijdelijk) Nederland verlaat.
+            </p>
+            <ul class="sb-hero-list">
+              <li>
+                <span>✅</span>
+                <span>Wanneer moet je je uitschrijven uit Nederland?</span>
+              </li>
+              <li>
+                <span>✅</span>
+                <span>Wat betekent de 183-dagenregel in de praktijk?</span>
+              </li>
+              <li>
+                <span>✅</span>
+                <span>Wat gebeurt er met je AOW en pensioen als je emigreert?</span>
+              </li>
+              <li>
+                <span>✅</span>
+                <span>Hoe regel je je zorgverzekering in het buitenland?</span>
+              </li>
+            </ul>
 
-      <div class="illustration" aria-hidden="true">
-        <!-- Simpele fun illustratie in SVG -->
-        <svg viewBox="0 0 260 180">
-          <defs>
-            <linearGradient id="planeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#00e676"/>
-              <stop offset="100%" stop-color="#00bcd4"/>
-            </linearGradient>
-            <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stop-color="#1de9b6"/>
-              <stop offset="100%" stop-color="#a7ffeb"/>
-            </linearGradient>
-          </defs>
+            <div class="sb-hero-country-chips">
+              <div class="sb-chip">🇧🇬 Bulgarije</div>
+              <div class="sb-chip">🇭🇺 Hongarije</div>
+              <div class="sb-chip">🇷🇴 Roemenië</div>
+              <div class="sb-chip">🇵🇹 Portugal</div>
+              <div class="sb-chip">🇪🇸 Spanje</div>
+            </div>
 
-          <!-- Horizon -->
-          <rect x="0" y="120" width="260" height="60" fill="rgba(0,0,0,0.35)" />
-
-          <!-- Boarding pass / money card -->
-          <rect x="18" y="40" rx="14" ry="14" width="115" height="80" fill="url(#cardGrad)" opacity="0.95"/>
-          <rect x="18" y="40" rx="14" ry="14" width="115" height="80"
-                fill="none" stroke="rgba(0,0,0,0.3)" stroke-width="2"/>
-          <text x="30" y="65" font-size="12" fill="#004d40" font-weight="700">
-            SLIM BUITENLAND
-          </text>
-          <text x="30" y="85" font-size="10" fill="#004d40">
-            Ticket to 💸 & ☀
-          </text>
-          <text x="30" y="103" font-size="9" fill="#004d40">
-            NL ➜ World
-          </text>
-
-          <!-- Plane -->
-          <g transform="translate(140,45)">
-            <path d="M0 40 L55 25 L105 40 L55 55 Z" fill="url(#planeGrad)" />
-            <path d="M55 15 L70 42 L40 42 Z" fill="url(#planeGrad)"/>
-            <rect x="48" y="32" width="14" height="18" fill="rgba(255,255,255,0.9)" rx="3"/>
-            <circle cx="25" cy="48" r="4" fill="#ffffff" opacity="0.9"/>
-            <circle cx="55" cy="48" r="4" fill="#ffffff" opacity="0.9"/>
-            <circle cx="85" cy="48" r="4" fill="#ffffff" opacity="0.9"/>
-          </g>
-
-          <!-- Sun -->
-          <circle cx="220" cy="30" r="18" fill="#ffd600" opacity="0.95"/>
-
-          <!-- Waves / buitenland gevoel -->
-          <path d="M0 135 Q35 125 70 135 T140 135 T210 135 T280 135"
-                fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="3" />
-          <path d="M0 145 Q35 135 70 145 T140 145 T210 145 T280 145"
-                fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2" />
-        </svg>
+            <div class="sb-hero-disclaimer">
+              <strong>Belangrijk:</strong>
+              De informatie op deze pagina is algemeen en geen persoonlijk belasting- of juridisch advies.
+              Voor jouw situatie raden we altijd een erkende adviseur aan. Als je via ons in contact komt met
+              een partner, kunnen we een commissie ontvangen.
+            </div>
+          </aside>
+        </div>
       </div>
+    </section>
 
-      <div class="tag">
-        <span>Phase 1:</span> <span>We are live 💻</span>
+    <!-- Voor wie ----------------------------------------------------------- -->
+    <section id="voor-wie">
+      <div class="sb-container">
+        <div class="sb-section-heading">
+          <h2>Voor wie is Slim Buitenland?</h2>
+          <p>
+            Deze pillarpage is je vertrekpunt als je serieus overweegt om (deels) in het buitenland te gaan
+            wonen of werken, maar geen zin hebt om uren verdwaald te raken in vage regels en tegenstrijdige informatie.
+          </p>
+        </div>
+
+        <div class="sb-audience-grid">
+          <div class="sb-card sb-audience-card">
+            <h3>1. Digital nomads & remote workers</h3>
+            <p>
+              Je werkt online (IT, marketing, design, e-commerce, consulting) en wilt niet gebonden zijn aan één land.
+            </p>
+            <ul>
+              <li>Meer dan een paar maanden per jaar in het buitenland</li>
+              <li>Vraagtekens bij woonplaats en belasting</li>
+              <li>Zoekt stabiele en legale oplossingen</li>
+            </ul>
+          </div>
+
+          <div class="sb-card sb-audience-card">
+            <h3>2. Zelfstandigen & ondernemers</h3>
+            <p>
+              Je bent ZZP’er of ondernemer en je inkomen komt vooral online binnen.
+              Je vraagt je af of je in een ander land slimmer uit kunt zijn.
+            </p>
+            <ul>
+              <li>E-commerce, affiliate marketing, coaching, online diensten</li>
+              <li>Interesse in landen met lage belasting en lage kosten</li>
+              <li>Twijfels over inschrijving, BV/LLC, boekhouding</li>
+            </ul>
+          </div>
+
+          <div class="sb-card sb-audience-card">
+            <h3>3. Pensionado’s & overwinteraars</h3>
+            <p>
+              Je gaat bijna met pensioen of ontvangt al AOW/pensioen en denkt aan een
+              (gedeeltelijke) verhuizing naar Spanje, Portugal, Bulgarije of elders.
+            </p>
+            <ul>
+              <li>Vragen over AOW-opbouw en kortingen</li>
+              <li>Belasting op pensioen in Nederland of buitenland?</li>
+              <li>Hoe zit het met zorgverzekering en zorgkosten?</li>
+            </ul>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <p class="small">
-        PS: Als je dit leest, werkt de hele keten al: Nando + Ard + GitHub + Vercel + SlimBuitenland.nl 😎
-      </p>
-    </main>
-  </div>
+    <!-- Hoe werkt deze gids ------------------------------------------------ -->
+    <section id="intro">
+      <div class="sb-container">
+        <div class="sb-two-col">
+          <div>
+            <div class="sb-section-heading">
+              <h2>Hoe gebruik je deze gids?</h2>
+              <p>
+                Zie deze pagina als je centrale hub: een overzicht van de belangrijkste thema’s met links
+                naar verdiepende artikelen. Zo hoef je niet alles in één keer te onthouden.
+              </p>
+            </div>
+
+            <ul class="sb-step-list">
+              <li class="sb-step-item">
+                <div class="sb-step-number">1</div>
+                <div class="sb-step-content">
+                  <h3>Bepaal je situatie</h3>
+                  <p>
+                    Ben je nomad, ondernemer of (toekomstige) pensionado? Lees vooral het blok dat het beste bij jouw situatie hoort.
+                  </p>
+                </div>
+              </li>
+              <li class="sb-step-item">
+                <div class="sb-step-number">2</div>
+                <div class="sb-step-content">
+                  <h3>Check de basics per thema</h3>
+                  <p>
+                    Werken, wonen/uitschrijven, AOW en zorgverzekering: elk thema heeft zijn eigen “valkuilen”.
+                  </p>
+                </div>
+              </li>
+              <li class="sb-step-item">
+                <div class="sb-step-number">3</div>
+                <div class="sb-step-content">
+                  <h3>Lees door naar landenpagina’s</h3>
+                  <p>
+                    Start bijvoorbeeld met Bulgarije als je lage belasting en lage kosten zoekt.
+                  </p>
+                </div>
+              </li>
+              <li class="sb-step-item">
+                <div class="sb-step-number">4</div>
+                <div class="sb-step-content">
+                  <h3>Plan eventueel maatwerkadvies</h3>
+                  <p>
+                    Twijfel je? Laat je situatie checken door een erkende adviseur via onze partners.
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <aside>
+            <div class="sb-card-soft">
+              <div class="sb-subtitle">Belangrijk uitgangspunt</div>
+              <h3 style="margin:4px 0 6px;font-size:16px;">We zijn geen belastingadviseur – en dat is juist onze kracht</h3>
+              <p class="sb-text-sm">
+                Slim Buitenland is een onafhankelijke kenniswebsite. We verdienen ons geld met
+                <strong>leadgeneratie</strong> en <strong>affiliate marketing</strong>, niet door jou per uur te factureren.
+                Daardoor kunnen we eerlijker uitleggen wat er ongeveer speelt, zonder direct jouw adviseur te willen zijn.
+              </p>
+              <p class="sb-text-sm">
+                Zodra het te specifiek wordt, brengen we je – transparant – in contact met een erkende professional.
+              </p>
+
+              <div class="sb-chip-row">
+                <span class="sb-chip-soft">Neutraal overzicht</span>
+                <span class="sb-chip-soft">Praktisch & nuchter</span>
+                <span class="sb-chip-soft">Partners voor maatwerk</span>
+              </div>
+
+              <div class="sb-disclaimer">
+                <strong>DISCLAIMER</strong>
+                De informatie op deze website is algemeen en geen persoonlijk belasting- of juridisch advies.
+                We zijn geen gecertificeerde belastingadviseurs. Voor jouw situatie raden we altijd een erkende
+                professional aan. Als je via ons contact opneemt met een partner, kunnen we een commissie ontvangen.
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Werken & ondernemen ------------------------------------------------- -->
+    <section id="werken">
+      <div class="sb-container">
+        <div class="sb-section-heading">
+          <h2>Werken & ondernemen in het buitenland</h2>
+          <p>
+            Of je nu in cafés in Sofia zit te werken, op een strand in Portugal of in een appartement in Budapest:
+            de fiscus kijkt vooral <strong>waar jij woont</strong> en <strong>waar je je inkomen verdient</strong>.
+          </p>
+        </div>
+
+        <div class="sb-two-col">
+          <div>
+            <div class="sb-subtitle">Belangrijke begrippen</div>
+            <h3 style="margin:4px 0 6px;font-size:16px;">Woonplaats, 183-dagenregel en waar je belasting betaalt</h3>
+            <p class="sb-text-sm">
+              In de meeste situaties is <strong>fiscale woonplaats</strong> het kernbegrip. De Belastingdienst kijkt niet alleen
+              naar je paspoort, maar naar feiten en omstandigheden: waar woon je, waar is je gezin, waar heb je een woning,
+              waar bouw je je leven op?
+            </p>
+            <p class="sb-text-sm">
+              De bekende <strong>183-dagenregel</strong> uit belastingverdragen is géén “trucje om Nederland te ontwijken”.
+              Het is een hulpmiddel om te bepalen welk land in eerste instantie mag heffen over je loon. Maar:
+            </p>
+            <ul class="sb-list-clean">
+              <li>Je kunt soms in Nederland belastingplichtig blijven, ook als je veel reist.</li>
+              <li>Een land als Bulgarije kan je als inwoner zien als je daar je leven opbouwt.</li>
+              <li>Belastingverdragen voorkomen dubbele heffing, maar lossen niet alles automatisch op.</li>
+            </ul>
+
+            <div class="sb-highlight">
+              Laat de 183-dagenregel geen excuus zijn om niets te regelen. Zie het als signaal dat je
+              je situatie goed moet laten beoordelen als je veel buiten Nederland bent.
+            </div>
+          </div>
+
+          <aside>
+            <div class="sb-card-soft">
+              <h3 style="margin:0 0 6px;font-size:15px;">Typische situaties</h3>
+              <div class="sb-cols-2">
+                <div>
+                  <h4 style="margin:6px 0 3px;font-size:13px;">Digital nomad</h4>
+                  <p class="sb-text-sm">
+                    Factureert klanten wereldwijd, reist door Europa en Azië, verblijft nergens lang.
+                    De vraag: <em>waar ben je eigenlijk inwoner?</em>
+                  </p>
+                </div>
+                <div>
+                  <h4 style="margin:6px 0 3px;font-size:13px;">Remote werknemer</h4>
+                  <p class="sb-text-sm">
+                    Loondienst bij een Nederlands of buitenlands bedrijf, maar werkt (deels) vanuit buitenland.
+                    Kan gevolgen hebben voor loonheffingen en sociale zekerheid.
+                  </p>
+                </div>
+              </div>
+              <div class="sb-cols-2" style="margin-top:6px;">
+                <div>
+                  <h4 style="margin:6px 0 3px;font-size:13px;">ZZP’er / freelancer</h4>
+                  <p class="sb-text-sm">
+                    Inschrijving KvK in Nederland, maar steeds vaker in Bulgarije, Portugal of elders.
+                    Op een gegeven moment moet je kiezen waar je fiscaal “thuis” bent.
+                  </p>
+                </div>
+                <div>
+                  <h4 style="margin:6px 0 3px;font-size:13px;">Offshore / maritiem</h4>
+                  <p class="sb-text-sm">
+                    Veel op zee of buiten Nederland, soms via buitenlandse werkgever. Hier spelen vaak
+                    verdragen en speciale regelingen. Maatwerk is bijna altijd nodig.
+                  </p>
+                </div>
+              </div>
+
+              <div class="sb-chip-row">
+                <span class="sb-chip-soft">Fiscale woonplaats</span>
+                <span class="sb-chip-soft">183-dagenregel</span>
+                <span class="sb-chip-soft">Inkomen per land</span>
+              </div>
+
+              <p class="sb-text-sm" style="margin-top:8px;">
+                Verdieping volgt in aparte artikelen, bijvoorbeeld:
+                <em>“Werken in het buitenland als Nederlander: hoe zit het met belasting?”</em> en
+                <em>“Remote werken vanuit het buitenland: regels voor werknemers en freelancers”.</em>
+              </p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Wonen & emigreren --------------------------------------------------- -->
+    <section id="wonen">
+      <div class="sb-container">
+        <div class="sb-section-heading">
+          <h2>Wonen & emigreren: uitschrijven, BRP en landenkeuze</h2>
+          <p>
+            Op het moment dat je niet meer “tijdelijk op reis” bent maar echt in een ander land wilt wonen,
+            komt er meer bij kijken dan een ticket boeken en een Airbnb huren.
+          </p>
+        </div>
+
+        <div class="sb-two-col">
+          <div>
+            <div class="sb-subtitle">Uitschrijven & BRP</div>
+            <h3 style="margin:4px 0 6px;font-size:16px;">Wanneer moet je je uitschrijven uit Nederland?</h3>
+            <p class="sb-text-sm">
+              In de basis geldt: als je <strong>langer dan 8 maanden in een periode van 12 maanden</strong> buiten Nederland woont,
+              moet je je uitschrijven bij de gemeente (BRP). Dat kan in één keer of verspreid zijn.
+            </p>
+            <ul class="sb-list-clean">
+              <li>Je geeft een nieuw adres in het buitenland door (indien bekend).</li>
+              <li>Je wordt opgenomen in de Registratie Niet-Ingezetenen (RNI).</li>
+              <li>Dit heeft gevolgen voor belasting, zorgverzekering en soms toeslagen.</li>
+            </ul>
+
+            <div class="sb-highlight">
+              Een van onze eerste artikelen wordt:
+              <strong>“Uitschrijven bij de gemeente als je naar het buitenland gaat”</strong>.
+              Daarin lopen we stap voor stap door het proces.
+            </div>
+
+            <div class="sb-subtitle" style="margin-top:10px;">Landenkeuze</div>
+            <p class="sb-text-sm">
+              Populaire keuzes zijn Bulgarije, Hongarije, Roemenië (vooral vanwege lage belasting en lage kosten),
+              en landen als Spanje en Portugal (klimaat, taal, grote communities).
+            </p>
+          </div>
+
+          <aside>
+            <div class="sb-card-soft">
+              <h3 style="margin:0 0 6px;font-size:15px;">Factoren bij je landenkeuze</h3>
+              <div class="sb-cols-2">
+                <div>
+                  <ul class="sb-list-clean">
+                    <li>Belastingtarieven en regels</li>
+                    <li>Kosten van levensonderhoud</li>
+                    <li>Toegang tot zorg en kwaliteit ervan</li>
+                    <li>Veiligheid en stabiliteit</li>
+                  </ul>
+                </div>
+                <div>
+                  <ul class="sb-list-clean">
+                    <li>Visum / verblijfsvergunning</li>
+                    <li>Community (expats/nomads)</li>
+                    <li>Taal en cultuur</li>
+                    <li>Bereikbaarheid met Nederland</li>
+                  </ul>
+                </div>
+              </div>
+              <p class="sb-text-sm" style="margin-top:8px;">
+                Op BuitenlandBelasting.nl komen <strong>landen-gidsen</strong> voor o.a. Bulgarije, Hongarije, Roemenië,
+                Spanje en Portugal, waarin we deze factoren overzichtelijk op een rij zetten.
+              </p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- AOW & pensioen ------------------------------------------------------ -->
+    <section id="aow">
+      <div class="sb-container">
+        <div class="sb-section-heading">
+          <h2>AOW & pensioen in het buitenland</h2>
+          <p>
+            Emigreren of lang in het buitenland verblijven kan invloed hebben op je AOW-opbouw en de belasting
+            op je pensioen. Het is zonde om hier pas achter te komen als het te laat is.
+          </p>
+        </div>
+
+        <div class="sb-two-col">
+          <div>
+            <div class="sb-subtitle">AOW-opbouw</div>
+            <p class="sb-text-sm">
+              In principe bouw je AOW op voor elk jaar dat je tussen je 15e en AOW-leeftijd
+              in Nederland woont of verzekerd bent. Als je definitief buiten Nederland gaat wonen,
+              kan je <strong>AOW-opbouw (deels) stoppen</strong> of later een korting opleveren.
+            </p>
+            <p class="sb-text-sm">
+              In onze verdiepende artikelen leggen we uit:
+            </p>
+            <ul class="sb-list-clean">
+              <li>Wanneer je nog verzekerd bent voor de AOW vanuit het buitenland</li>
+              <li>Hoe AOW-kortingen ongeveer worden berekend</li>
+              <li>Wat het verschil is tussen AOW en aanvullend pensioen</li>
+            </ul>
+          </div>
+
+          <aside>
+            <div class="sb-card-soft">
+              <div class="sb-subtitle">Pensioen & belasting</div>
+              <h3 style="margin:4px 0 6px;font-size:15px;">Waar betaal je belasting over je pensioen?</h3>
+              <p class="sb-text-sm">
+                Of je belasting over je pensioen in Nederland of in het buitenland betaalt, hangt onder andere af van:
+              </p>
+              <ul class="sb-list-clean">
+                <li>Of er een belastingverdrag is tussen Nederland en je nieuwe woonland</li>
+                <li>Het soort pensioen (AOW, werkgeverspensioen, lijfrente, etc.)</li>
+                <li>Je fiscale woonplaats</li>
+              </ul>
+              <p class="sb-text-sm">
+                Voor veel mensen is dit te complex om zelf uit te rekenen. In dat geval is maatwerkadvies
+                van een specialist heel verstandig – zeker bij grotere pensioenbedragen.
+              </p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Zorg & verzekering -------------------------------------------------- -->
+    <section id="zorg">
+      <div class="sb-container">
+        <div class="sb-section-heading">
+          <h2>Zorgverzekering & internationale verzekeringen</h2>
+          <p>
+            Eén van de meest onderschatte onderwerpen bij emigratie en nomad-leven: je zorgverzekering.
+            “Ik heb toch gewoon mijn Nederlandse basisverzekering?” is vaak maar een deel van het verhaal.
+          </p>
+        </div>
+
+        <div class="sb-two-col">
+          <div>
+            <div class="sb-subtitle">Basisvraag: waar ben je sociaal verzekerd?</div>
+            <p class="sb-text-sm">
+              Als je in Nederland woont en werkt, ben je meestal in Nederland sociaal verzekerd en heb je daar een
+              zorgverzekering nodig. Als je in een ander land gaat wonen of werken, kan dit verschuiven.
+            </p>
+            <ul class="sb-list-clean">
+              <li>Emigratie kan betekenen dat je Nederlandse basisverzekering niet meer mag.</li>
+              <li>Je valt dan onder het zorgsysteem van je nieuwe woonland.</li>
+              <li>Voor nomads kan een internationale zorgverzekering of expat-polis interessant zijn.</li>
+            </ul>
+          </div>
+
+          <aside>
+            <div class="sb-card-soft">
+              <h3 style="margin:0 0 6px;font-size:15px;">Mogelijke oplossingen</h3>
+              <ul class="sb-list-clean">
+                <li>Lokale zorgverzekering in je nieuwe woonland</li>
+                <li>Internationale zorgverzekering / expat-verzekering</li>
+                <li>Aanvullende reis- of SOS-dekking voor langere periodes</li>
+              </ul>
+              <p class="sb-text-sm">
+                In onze artikelen over <strong>“Zorgverzekering in het buitenland”</strong> en
+                <strong>“Internationale zorgverzekering voor digital nomads”</strong> gaan we hier dieper op in.
+              </p>
+              <p class="sb-text-sm">
+                Via affiliate-partners kunnen we je doorverwijzen naar aanbieders van expat- en nomad-pakketten,
+                zodat je niet alles zelf hoeft uit te zoeken.
+              </p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Landen & Bulgarije -------------------------------------------------- -->
+    <section id="landen">
+      <div class="sb-container">
+        <div class="sb-section-heading">
+          <h2>Landen-gidsen: Bulgarije eerst (Hongarije, Roemenië, Spanje, Portugal volgen)</h2>
+          <p>
+            We starten bewust met Bulgarije, omdat het land interessant is voor digital nomads en ondernemers
+            die op zoek zijn naar lage inkomstenbelasting en lage kosten van levensonderhoud.
+          </p>
+        </div>
+
+        <div class="sb-country-grid">
+          <div>
+            <div class="sb-country-tag">Bulgarije – startfocus</div>
+            <div class="sb-country-highlight">
+              <h3>Waarom zoveel nomads & ondernemers naar Bulgarije kijken</h3>
+              <p>
+                Bulgarije is geen magisch belastingparadijs, maar wél een serieuze optie als je:
+              </p>
+              <ul>
+                <li>je leven écht in Bulgarije opbouwt (woning, inschrijving, netwerk);</li>
+                <li>bereid bent je administratie goed te regelen;</li>
+                <li>snapt dat “minder belasting betalen” nog steeds binnen de regels moet.</li>
+              </ul>
+              <p>
+                Onze Bulgaarse partner (administratie/fiscalist) kan je helpen met:
+              </p>
+              <ul>
+                <li>Inschrijving en fiscale structuur in Bulgarije</li>
+                <li>Lokale boekhouding & aangiftes</li>
+                <li>Afstemming met Nederlandse situatie waar nodig</li>
+              </ul>
+
+              <button class="sb-cta-mini" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+                Plan oriënterende kennismaking <span>→</span>
+              </button>
+            </div>
+          </div>
+
+          <aside>
+            <div class="sb-card-soft">
+              <h3 style="margin:0 0 6px;font-size:15px;">Andere landen in beeld</h3>
+              <p class="sb-text-sm">
+                Naast Bulgarije werken we stap voor stap aan landen-gidsen voor o.a.:
+              </p>
+              <ul class="sb-list-clean">
+                <li><strong>Hongarije</strong> – interessant voor woonlasten en lifestyle</li>
+                <li><strong>Roemenië</strong> – groeiende tech- en nomad-scene</li>
+                <li><strong>Portugal</strong> – geliefd bij nomads en pensionado’s</li>
+                <li><strong>Spanje</strong> – klassieker voor overwinteraars en emigranten</li>
+              </ul>
+              <p class="sb-text-sm">
+                Voor elk land willen we dezelfde structuur bieden:
+              </p>
+              <ul class="sb-list-clean">
+                <li>Belasting (inkomstenbelasting, speciale regimes)</li>
+                <li>Kosten van leven (huur, boodschappen, etc.)</li>
+                <li>Praktische zaken (inschrijving, zorg, bank, community)</li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ ----------------------------------------------------------------- -->
+    <section id="faq">
+      <div class="sb-container">
+        <div class="sb-section-heading">
+          <h2>Veelgestelde vragen (FAQ)</h2>
+          <p>
+            Dit is een eerste set korte antwoorden. In onze aparte FAQ-artikelen gaan we dieper in op de details
+            en linken we naar officiële bronnen.
+          </p>
+        </div>
+
+        <div class="sb-faq-list">
+          <div class="sb-faq-item">
+            <div class="sb-faq-question">
+              <span>Ben ik nog belastingplichtig in Nederland als ik veel reis?</span>
+              <div class="sb-faq-toggle">+</div>
+            </div>
+            <div class="sb-faq-answer">
+              In veel gevallen kijkt de Belastingdienst naar je <strong>fiscale woonplaats</strong>. Als je
+              officieel in Nederland woont, je gezin daar zit of je leven vooral in Nederland is,
+              kun je nog steeds in Nederland belastingplichtig zijn, zelfs als je veel reist.
+              De 183-dagenregel alleen is dus geen garantie dat je niet (meer) in Nederland betaalt.
+            </div>
+          </div>
+
+          <div class="sb-faq-item">
+            <div class="sb-faq-question">
+              <span>Wanneer moet ik me uitschrijven bij de gemeente?</span>
+              <div class="sb-faq-toggle">+</div>
+            </div>
+            <div class="sb-faq-answer">
+              In principe als je langer dan 8 maanden (in totaal) binnen 12 maanden buiten Nederland gaat wonen.
+              Dat hoeft niet aaneengesloten te zijn. In ons artikel over uitschrijven leggen we precies uit
+              hoe dit werkt en wat de gevolgen zijn.
+            </div>
+          </div>
+
+          <div class="sb-faq-item">
+            <div class="sb-faq-question">
+              <span>Kan ik zomaar naar Bulgarije verhuizen voor de lage belasting?</span>
+              <div class="sb-faq-toggle">+</div>
+            </div>
+            <div class="sb-faq-answer">
+              “Zomaar” verhuizen bestaat niet. Je zult je leven daadwerkelijk in Bulgarije moeten opbouwen:
+              inschrijving, woning, eventueel taal, klanten of werk. Daarnaast moet je kijken hoe je situatie
+              in Nederland wordt afgesloten. Dit is typisch een onderwerp waar je een specialist bij wilt betrekken.
+            </div>
+          </div>
+
+          <div class="sb-faq-item">
+            <div class="sb-faq-question">
+              <span>Wat gebeurt er met mijn AOW als ik emigreer?</span>
+              <div class="sb-faq-toggle">+</div>
+            </div>
+            <div class="sb-faq-answer">
+              Ga je definitief in het buitenland wonen en ben je niet langer in Nederland verzekerd, dan kan je
+              <strong>AOW-opbouw stoppen</strong> en kun je later een korting krijgen op je AOW. In sommige situaties
+              kun je vrijwillig doorverzekeren. De precieze gevolgen hangen af van je leeftijd en je woon-/werksituatie.
+            </div>
+          </div>
+
+          <div class="sb-faq-item">
+            <div class="sb-faq-question">
+              <span>Kan Slim Buitenland mijn belastingaangifte doen?</span>
+              <div class="sb-faq-toggle">+</div>
+            </div>
+            <div class="sb-faq-answer">
+              Nee. Slim Buitenland doet zelf geen aangiftes en geeft geen persoonlijk belastingadvies.
+              We leggen uit hoe de regels ongeveer werken en verwijzen je, als je dat wilt,
+              door naar erkende fiscalisten en administratiekantoren in binnen- en buitenland.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact / leadformulier -------------------------------------------- -->
+    <section id="contact">
+      <div class="sb-container">
+        <div class="sb-section-heading">
+          <h2>Persoonlijk advies via onze partners</h2>
+          <p>
+            Herken je jezelf in de situaties hierboven en wil je dat een specialist één keer goed meekijkt?
+            Vul dan het formulier in. We sturen je gegevens alleen door als we denken dat een partner echt
+            iets voor je kan betekenen.
+          </p>
+        </div>
+
+        <div class="sb-form-grid">
+          <div class="sb-card">
+            <form action="#" method="post">
+              <div class="sb-form-group">
+                <label for="naam">Naam</label>
+                <input type="text" id="naam" name="naam" placeholder="Je voor- en achternaam" required />
+              </div>
+
+              <div class="sb-form-group">
+                <label for="email">E-mailadres</label>
+                <input type="email" id="email" name="email" placeholder="jij@example.com" required />
+              </div>
+
+              <div class="sb-form-group">
+                <label for="situatie">Wat is je situatie?</label>
+                <select id="situatie" name="situatie" required>
+                  <option value="">Maak een keuze…</option>
+                  <option value="nomad">Digital nomad / remote worker</option>
+                  <option value="zzp">ZZP’er / ondernemer</option>
+                  <option value="pensionado">Pensionado / bijna-pensionado</option>
+                  <option value="anders">Anders / combinatie</option>
+                </select>
+              </div>
+
+              <div class="sb-form-group">
+                <label for="land">Land(en) waar je aan denkt</label>
+                <input type="text" id="land" name="land" placeholder="Bijv. Bulgarije, Hongarije, Portugal" />
+              </div>
+
+              <div class="sb-form-group">
+                <label for="bericht">Korte beschrijving van je vraag</label>
+                <textarea id="bericht" name="bericht" placeholder="Beschrijf in 3–5 regels je situatie en je belangrijkste vragen."></textarea>
+                <div class="sb-form-help">
+                  Geen gevoelige details nodig in deze eerste stap. Een globale schets is genoeg.
+                </div>
+              </div>
+
+              <button type="submit" class="sb-btn-submit">
+                Verstuur je aanvraag
+              </button>
+
+              <div class="sb-form-help" style="margin-top:6px;">
+                We reageren per e-mail. Als we denken dat je beter direct een officiële instantie kunt benaderen,
+                zeggen we dat ook eerlijk.
+              </div>
+            </form>
+          </div>
+
+          <aside>
+            <div class="sb-card-soft">
+              <h3 style="margin:0 0 6px;font-size:15px;">Hoe wij met je gegevens omgaan</h3>
+              <p class="sb-text-sm">
+                We gebruiken je gegevens alleen:
+              </p>
+              <ul class="sb-list-clean">
+                <li>om één keer contact met je op te nemen, en/of</li>
+                <li>om je – met jouw toestemming – door te sturen naar een partner.</li>
+              </ul>
+              <p class="sb-text-sm">
+                Als je via ons in contact komt met een partner, kan Slim Buitenland een vergoeding krijgen.
+                Voor jou verandert de prijs van het advies daardoor niet.
+              </p>
+
+              <div class="sb-disclaimer" style="margin-top:10px;">
+                <strong>TRANSPARANTIE</strong>
+                Slim Buitenland verkoopt geen eigen adviesuren. We verdienen aan affiliate-deals en leadvergoedingen.
+                Zo kunnen we onafhankelijk content maken en helder blijven uitleggen hoe dingen ongeveer werken,
+                zonder dat we jouw adviseur proberen te zijn.
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="sb-footer">
+    <div class="sb-container sb-footer-inner">
+      <div>
+        © <span id="sb-year"></span> Slim Buitenland – BuitenlandBelasting.nl. Alle rechten voorbehouden.
+      </div>
+      <div class="sb-footer-nav">
+        <a href="#intro">Over deze gids</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact / advies</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // FAQ toggle
+    document.querySelectorAll(".sb-faq-item").forEach(function (item) {
+      item.querySelector(".sb-faq-question").addEventListener("click", function () {
+        item.classList.toggle("active");
+      });
+    });
+
+    // Jaar in footer
+    document.getElementById("sb-year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
